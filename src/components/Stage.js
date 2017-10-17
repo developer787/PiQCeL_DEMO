@@ -6,8 +6,8 @@ const ball = {
 	radius: 25,
 	color: 'blue',
 	move: options =>{
-		const w = options.vw
-		const h = options.vh
+		const w = options.stageWidth
+		const h = options.stageHeight
 		const oscillator = options.oscillator
 		ball.x += ball.vx
 		ball.y += ball.vy
@@ -29,14 +29,14 @@ const ball = {
 }
 const Circle = (options)=>{
 	options.ctx.beginPath()
-	options.ctx.arc(options.vw/2,options.vh/2,50,0,Math.PI * 2, true)
+	options.ctx.arc(options.stageWidth/2,options.stageHeight/2,50,0,Math.PI * 2, true)
 	options.ctx.fillStyle = "#000000"
 	options.ctx.fill()
 	options.ctx.closePath()
 }
 const Nose = (options)=>{
 	options.ctx.beginPath()
-	options.ctx.arc(options.vw/2,options.vh/2 + 6,8,0,Math.PI * 2, true)
+	options.ctx.arc(options.stageWidth/2,options.stageHeight/2 + 6,8,0,Math.PI * 2, true)
 
 	options.ctx.fillStyle = "#FFFFFF"
 	options.ctx.fill()
@@ -45,16 +45,16 @@ const Nose = (options)=>{
 }
 const Eyes = (options)=>{
 	options.ctx.beginPath()
-	options.ctx.arc(options.vw/2 - 5,options.vh/2 - 5,5,0,Math.PI * 2, true)
-	options.ctx.arc(options.vw/2 + 5,options.vh/2 - 5,5,0,Math.PI * 2, true)
+	options.ctx.arc(options.stageWidth/2 - 5,options.stageHeight/2 - 5,5,0,Math.PI * 2, true)
+	options.ctx.arc(options.stageWidth/2 + 5,options.stageHeight/2 - 5,5,0,Math.PI * 2, true)
 
 	options.ctx.fillStyle = "#FFFFFF"
 	options.ctx.fill()
 	options.ctx.closePath()
 }
 const EyeBrows = (options)=>{
-	const w = options.vw
-	const h = options.vh
+	const w = options.stageWidth
+	const h = options.stageHeight
 	options.ctx.beginPath()
 	options.ctx.lineWidth = "4"
 	options.ctx.moveTo(w/2 - 16, h/2 - 22 )
@@ -68,18 +68,19 @@ const EyeBrows = (options)=>{
 }
 const Mouth = (options)=>{
 	options.ctx.beginPath()
-	options.ctx.rect(options.vw/2-10,options.vh/2 + 18,20,10)
+	options.ctx.rect(options.stageWidth/2-10,options.stageHeight/2 + 18,20,10)
 
 	options.ctx.fillStyle = "#FFFFFF"
 	options.ctx.fill()
 	options.ctx.stroke()
 	options.ctx.closePath()
 }
-export default (ctx, vw, vh, audio,mouse, oscillator, volumen) => {
+export default (stage_props) => {
+	const {canvas, ctx, stageWidth, StageHeight, mouse, audio, oscillator} = stage_props
 	const options = {
 		ctx,
-		vw,
-		vh,
+		stageWidth,
+		stageHeight
 		audio,
 		oscillator,
 		volumen

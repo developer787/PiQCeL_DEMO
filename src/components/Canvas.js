@@ -21,19 +21,22 @@ class Canvas extends React.Component {
 		const ctx = this.refs.canvas.getContext('2d')
 		const canvas = this.refs.canvas
 		const mouse = new MouseEvent(canvas)
-		const vw = window.innerWidth
-		const vh = window.innerHeight
-		const ratio = DPI(canvas, ctx, vw, vh)
+		const stageWidth = window.innerWidth
+		const stageHeight = window.innerHeight
+		const ratio = DPI(canvas, ctx, stageWidth, stageHeight)
 		console.log(ratio)
 		if(ratio === 1){
-			canvas.width = vw
-			canvas.height = vh
+			canvas.width = stageWidth
+			canvas.height = stageHeight
 		}
+		const stage_props = {
+			canvas, ctx, mouse, stageWidth, stageHeight, audio,
+			oscillator, volumen
 
 		requestAnimationFrame(function gameLoop() {
-			ctx.clearRect(0, 0, vw, vh)
+			ctx.clearRect(0, 0, stageWidth, stageHeight)
 			// Start drawing
-			  Stage(ctx, vw, vh, audio, mouse, oscillator, volumen)
+			  Stage(stage_props)
 			// End Drawing
 			requestAnimationFrame(gameLoop)
 		})
