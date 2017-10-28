@@ -14,9 +14,9 @@ class Canvas extends React.Component {
 		const audio = new (window.AudioContext || window.webkitAudioContext)()
 		const oscillator = audio.createOscillator()
 		const volumen = audio.createGain()
-		oscillator.type = "sawtooth";
-		oscillator.frequency.value = 500;
-		oscillator.connect(audio.destination);
+		oscillator.type = "pulse"
+		oscillator.frequency.value = 220
+		oscillator.connect(audio.destination)
 
 		const ctx = this.refs.canvas.getContext('2d')
 		const canvas = this.refs.canvas
@@ -24,7 +24,6 @@ class Canvas extends React.Component {
 		const stageWidth = window.innerWidth
 		const stageHeight = window.innerHeight
 		const ratio = DPI(canvas, ctx, stageWidth, stageHeight)
-		console.log(ratio)
 		if(ratio === 1){
 			canvas.width = stageWidth
 			canvas.height = stageHeight
@@ -37,9 +36,7 @@ class Canvas extends React.Component {
 
 		requestAnimationFrame(function gameLoop() {
 			ctx.clearRect(0, 0, stageWidth, stageHeight)
-			// Start drawing
-			  Stage(stage_props)
-			// End Drawing
+			Stage(stage_props)
 			requestAnimationFrame(gameLoop)
 		})
 	}
