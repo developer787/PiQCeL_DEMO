@@ -30,8 +30,10 @@ class Canvas extends React.Component {
 			canvas.height = stageHeight
 		}
 		const stage_props = {
-			canvas, ctx, mouse, stageWidth, stageHeight, audio,
+			canvas, ctx, mouse,
+			stageWidth, stageHeight, audio,
 			oscillator, volumen
+		}
 
 		requestAnimationFrame(function gameLoop() {
 			ctx.clearRect(0, 0, stageWidth, stageHeight)
