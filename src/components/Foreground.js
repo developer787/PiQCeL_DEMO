@@ -30,7 +30,7 @@ class Foreground extends React.Component {
 		return (
 			<div className="Foreground">
 			<Header as="h1" textAlign="center">
-			Score: 0 
+			Score: 1{this.props.count} 
 			</Header>
 			<div className="footer">
 			{buttons()}
