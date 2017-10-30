@@ -4,23 +4,25 @@
 	height: 100%;
 	position: absolute;
 }
-.Foreground button {
-	margin:40px;
-	padding: 6vmin;
-	font-size: 6vmin;
-}
 .Foreground .header {
 	text-align:right;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 8px;
 }
 .Foreground .footer {
 	width: 100%;
-	text-align:center;
+	position:fixed;
+	bottom:0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	position:fixed;
-	bottom:0;
+}
+.Foreground .buttons {
+	padding: 0;
+}
+.Foreground .button-ui {
+	margin: 40px;
+	padding: 0;
 }
