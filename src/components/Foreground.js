@@ -1,10 +1,11 @@
 import React from 'react'
-import { Button, Input, Header, Container } from 'semantic-ui-react'
+import { Button, Header } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 import './Foreground.css'
-const buttons = () => (
+const buttons = (INC, DEC) => (
 	<div className="buttons">
 	<Button 
+	  onClick={DEC}
 		className="button-ui"
 	  color="green"
 	  circular 
@@ -12,6 +13,7 @@ const buttons = () => (
 	  icon="arrow left">
 	</Button>
 	<Button 
+	  onClick={INC}
 		className="button-ui"
 	  color="green"
 	  size="massive" 
@@ -27,13 +29,14 @@ class Foreground extends React.Component {
 	componentDidUpdate(){
 	}
 	render() {
+		const { INC, DEC } = this.props
 		return (
 			<div className="Foreground">
 			<Header as="h1" textAlign="center">
 			Score: 1{this.props.count} 
 			</Header>
 			<div className="footer">
-			{buttons()}
+			{buttons(INC, DEC)}
 			</div>
 			</div>
 		)

@@ -11,15 +11,22 @@ const mapStateToProps = (state, ownProps)=>({
 	count: state.counter.count
 })
 
-const mapDispatchToProps = ()=>({})
+const mapDispatchToProps = (dispatch)=>({
+	INC: ()=>dispatch({type: "INC"}),
+	DEC: ()=>dispatch({type: "DEC"})
+})
 
 
 
 class App extends Component {
 	render() {
+		const { count, INC, DEC } = this.props
 		return (
 			<div className="App">
-			<Foreground />
+			<Foreground 
+			  count={count}
+			  DEC={DEC} 
+			  INC={INC} />
 			<Canvas />
 			</div>
 		);
