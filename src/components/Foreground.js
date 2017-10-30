@@ -10,12 +10,17 @@ class Foreground extends React.Component {
 	render() {
 		return (
 			<div className="Foreground">
+			  <div className="header">
+			  <p> Score: 0 </p>
+			  </div>
+			  <div className="footer">
 			  <button>
-			    -
+			{"<"}
 			  </button>
 			  <button>
-			    +
+			{">"}
 			  </button>
+			  </div>
 			</div>
 		)
 	}

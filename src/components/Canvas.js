@@ -14,7 +14,7 @@ class Canvas extends React.Component {
 		const audio = new (window.AudioContext || window.webkitAudioContext)()
 		const oscillator = audio.createOscillator()
 		const volumen = audio.createGain()
-		oscillator.type = "pulse"
+		//oscillator.type = "pulse"
 		oscillator.frequency.value = 220
 		oscillator.connect(audio.destination)
 
