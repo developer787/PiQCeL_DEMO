@@ -2,26 +2,29 @@ import React from 'react'
 import { Button, Header } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 import './Foreground.css'
-const buttons = (INC, DEC) => (
-	<div className="buttons">
-	<Button 
-	  onClick={DEC}
+const buttons = (props) => {
+	const {INC, DEC, LEFT, RIGHT } = props
+	return (
+		<div className="buttons">
+		<Button 
+		onClick={LEFT}
 		className="button-ui"
-	  color="green"
-	  circular 
-	  size="massive" 
-	  icon="arrow left">
-	</Button>
-	<Button 
-	  onClick={INC}
+		color="green"
+		circular 
+		size="massive" 
+		icon="arrow left">
+		</Button>
+		<Button 
+		onClick={INC}
 		className="button-ui"
-	  color="green"
-	  size="massive" 
-	  circular 
-	icon="arrow right">
-	</Button>
-	</div>
-)
+		color="green"
+		size="massive" 
+		circular 
+		icon="arrow right">
+		</Button>
+		</div>
+	)
+}
 
 class Foreground extends React.Component {
 	componentDidMount() {
@@ -29,14 +32,20 @@ class Foreground extends React.Component {
 	componentDidUpdate(){
 	}
 	render() {
-		const { INC, DEC } = this.props
+		const { count, INC, DEC, LEFT, RIGHT } = this.props
+		const props = {
+			INC,
+			DEC,
+			LEFT,
+			RIGHT
+		}
 		return (
 			<div className="Foreground">
 			<Header as="h1" textAlign="center">
-			Score: 1{this.props.count} 
+			Score: {count} 
 			</Header>
 			<div className="footer">
-			{buttons(INC, DEC)}
+			{buttons(props)}
 			</div>
 			</div>
 		)

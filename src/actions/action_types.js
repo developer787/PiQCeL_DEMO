@@ -1,3 +1,5 @@
-export const ADD_CIRCLE = 'ADD_CIRCLE';
-export const INC = 'INC';
-export const DEC = 'DEC';
+export const ADD_CIRCLE = 'ADD_CIRCLE'
+export const INC = 'INC'
+export const DEC = 'DEC'
+export const LEFT = 'LEFT'
+export const RIGHT = 'RIGHT'

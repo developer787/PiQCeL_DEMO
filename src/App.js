@@ -8,26 +8,31 @@ import Foreground from './components/Foreground'
 
 
 const mapStateToProps = (state, ownProps)=>({
-	count: state.counter.count
+	count: state.counter.count,
+	x: state.circle.x
 })
 
 const mapDispatchToProps = (dispatch)=>({
 	INC: ()=>dispatch({type: "INC"}),
-	DEC: ()=>dispatch({type: "DEC"})
+	DEC: ()=>dispatch({type: "DEC"}),
+	LEFT: ()=>dispatch({type: "LEFT"}),
+	RIGHT: ()=>dispatch({type: "RIGHT"})
 })
 
 
 
 class App extends Component {
 	render() {
-		const { count, INC, DEC } = this.props
+		const { x, count, INC, DEC, LEFT, RIGHT } = this.props
 		return (
 			<div className="App">
 			<Foreground 
 			  count={count}
+			  LEFT={LEFT} 
+			  RIGHT={RIGHT} 
 			  DEC={DEC} 
 			  INC={INC} />
-			<Canvas />
+			<Canvas ballx={x}/>
 			</div>
 		);
 	}

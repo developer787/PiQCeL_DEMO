@@ -23,6 +23,7 @@ class Canvas extends React.Component {
 		const mouse = new MouseEvent(canvas)
 		const stageWidth = window.innerWidth
 		const stageHeight = window.innerHeight
+		const ballx = this.props.ballx
 		const ratio = DPI(canvas, ctx, stageWidth, stageHeight)
 		if(ratio === 1){
 			canvas.width = stageWidth
@@ -30,6 +31,7 @@ class Canvas extends React.Component {
 		}
 		const stage_props = {
 			canvas, ctx, mouse,
+			ballx,
 			stageWidth, stageHeight, audio,
 			oscillator, volumen
 		}

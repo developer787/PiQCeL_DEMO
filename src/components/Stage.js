@@ -1,4 +1,4 @@
-import ball from './ball'
+import Ball from './ball'
 const Circle = (options)=>{
 	options.ctx.beginPath()
 	options.ctx.arc(options.stageWidth/2,options.stageHeight/2,50,0,Math.PI * 2, true)
@@ -50,15 +50,25 @@ const Mouth = (options)=>{
 export default (stage_props) => {
 	const {canvas, ctx, stageWidth, 
 		stageHeight, mouse, 
-		audio, oscillator, volumen} = stage_props
+    ballx, audio, oscillator, volumen} = stage_props
 	const options = {
 		ctx,
 		stageWidth,
 		stageHeight,
 		audio,
 		oscillator,
+		ballx,
 		volumen
 	}
+	const ball_opts = {
+	x: ballx,
+	y: 100,
+	radius: 25,
+	color: 'blue',
+	...options
+	}
+
+	const ball = new Ball(ball_opts)
 	// Your artwork starts here...
 
 	Circle(options)
@@ -66,8 +76,8 @@ export default (stage_props) => {
 	Eyes(options)
 	EyeBrows(options)
 	Nose(options)
-	ball.draw(options)
-	ball.move(options)
+	ball.draw(ball_opts)
+	//ball.move(options)
 
 	// And it ends here.
 }    

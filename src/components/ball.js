@@ -1,4 +1,18 @@
-const ball = {
+import React from "react"
+class Ball extends React.Component {
+	draw(props){
+		const { 
+			ctx, x, y, radius, color} = props
+		ctx.beginPath();
+		ctx.arc(x, y, radius, 0, Math.PI * 2, true);
+		ctx.closePath();
+		ctx.fillStyle = color;
+		ctx.fill();
+	}
+}
+
+ export default Ball
+/*
 	x: 100,
 	y: 100,
 	vx: 5,
@@ -25,6 +39,4 @@ const ball = {
 		ctx.fillStyle = this.color;
 		ctx.fill();
 	}
-}
-
- export default ball
+	*/
